@@ -45,10 +45,6 @@ const javascript = () => {
   .pipe(dest('build/'));
 }
 
-const build = () => {
-  return compilePug();
-}
-
 const watch = (cb) => {
   console.log('Watch task');
   parallel(
@@ -57,11 +53,17 @@ const watch = (cb) => {
   cb();
 }
 
-exports.build = series(clean, javascript)
+exports.build = series(
+  clean,
+  parallel(
+    compilePug,
+    javascript
+  )
+)
 
 exports.default = series(
   clean,
-  build,
+  // build,
   server,
   watch
 )

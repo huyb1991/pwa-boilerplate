@@ -36,9 +36,16 @@ const compilePug = () =>
     .pipe(pug())
     .pipe(dest('build/'));
 
-const build = (cb) => {
-  console.log('Build task');
+// Compress JS
+const javascript = () => {
+  return src('src/js/**/*.js')
+  .pipe(src('vendor/*.js'))
+  .pipe(uglify())
+  .pipe(concat('main.js'))
+  .pipe(dest('build/'));
+}
 
+const build = () => {
   return compilePug();
 }
 
@@ -50,10 +57,11 @@ const watch = (cb) => {
   cb();
 }
 
-exports.build = series(clean, build)
+exports.build = series(clean, javascript)
 
 exports.default = series(
   clean,
-  watch,
-  server
+  build,
+  server,
+  watch
 )

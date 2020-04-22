@@ -63,7 +63,7 @@ exports.build = series(
 
 exports.default = series(
   clean,
-  // build,
+  this.build,
   server,
   watch
 )

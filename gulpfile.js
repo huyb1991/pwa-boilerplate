@@ -36,6 +36,14 @@ const compilePug = () =>
     .pipe(pug())
     .pipe(dest('build/'));
 
+// Compile sass
+const cssBundle = () =>
+  src('./src/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cleanCSS())
+    .pipe(concat('styles.css'))
+    .pipe(dest('build'))
+
 // Compress JS
 const javascript = () => {
   return src('src/js/**/*.js')
@@ -57,6 +65,7 @@ exports.build = series(
   clean,
   parallel(
     compilePug,
+    cssBundle,
     javascript
   )
 )

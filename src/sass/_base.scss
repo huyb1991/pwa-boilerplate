@@ -4,5 +4,6 @@ html, body {
 }
 
 body {
-  background-color: #ffeedb;
+  background-color: $body-bg-color;
+  font-family: $font-family
 }

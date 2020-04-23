@@ -1,6 +1,15 @@
 .app {
   display: grid;
-  grid-template-rows: 60px 1fr 60px;
+  grid-template-rows: 100px 1fr 60px;
+}
+
+.main {
+  background-color: white;
+  border-radius: $base-spacing;
+
+  @media only screen and (min-width: $breakpoint-mobile) {
+    margin: $base-spacing;
+  }
 }
 
 .footer {
@@ -11,5 +20,5 @@
 }
 
 .container {
-  padding: 80px;
+  padding: 0 $base-spacing;
 }

@@ -11,8 +11,7 @@ const {
   cleanCSS  = require('gulp-clean-css'),
   uglify    = require('gulp-uglify'),
   concat    = require('gulp-concat'),
-  pug       = require('gulp-pug'),
-  htmlmin   = require('gulp-html-minifier');
+  pug       = require('gulp-pug');
 
 // Server task
 const server = () => {

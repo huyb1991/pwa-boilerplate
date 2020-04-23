@@ -37,7 +37,7 @@ const clean = () =>
   .pipe(gulpClean());
 
 // Compile Pug template to HTML
-const compilePug = () =>
+const pugBundle = () =>
   src('./src/pug/*.pug')
     .pipe(pug())
     .pipe(dest('build'));
@@ -61,7 +61,7 @@ const jsBundle = () =>
 const watchFiles = (cb) => {
   watch('./src/js/**/*.js', jsBundle);
   watch('./src/sass/**/*.scss', cssBundle);
-  watch('./src/pug/*.pug', compilePug);
+  watch('./src/pug/*.pug', pugBundle);
 
   return cb();
 }
@@ -69,7 +69,7 @@ const watchFiles = (cb) => {
 exports.build = series(
   clean,
   parallel(
-    compilePug,
+    pugBundle,
     cssBundle,
     jsBundle
   )

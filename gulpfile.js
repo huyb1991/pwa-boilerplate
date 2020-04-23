@@ -38,11 +38,16 @@ const clean = () =>
   })
   .pipe(gulpClean());
 
+// Copy assets
+const copy = () =>
+  src('./src/asset/**/*')
+  .pipe(dest('build'))
+
 // Compile Pug template to HTML
 const pugBundle = () =>
   src('./src/pug/*.pug')
     .pipe(pug())
-    .pipe(dest('build'));
+    .pipe(dest('build/assets'));
 
 // Compile sass
 const cssBundle = () =>
@@ -82,7 +87,8 @@ exports.build = series(
     pugBundle,
     cssBundle,
     jsBundle
-  )
+  ),
+  copy
 )
 
 exports.default = series(

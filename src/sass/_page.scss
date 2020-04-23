@@ -16,4 +16,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  &-icon {
+    width: 100%;
+    max-width: 30px;
+    max-height: 30px;
+  }
 }

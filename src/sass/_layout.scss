@@ -5,10 +5,14 @@
 
 .main {
   background-color: white;
-  border-radius: $base-spacing;
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    border-radius: $base-spacing $base-spacing 0 0;
+  }
 
   @media only screen and (min-width: $breakpoint-mobile) {
     margin: $base-spacing;
+    border-radius: $base-spacing;
   }
 }
 

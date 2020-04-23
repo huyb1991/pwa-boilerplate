@@ -1,12 +1,18 @@
-const { src, dest, series, parallel } = require('gulp'),
-    gulpClean = require('gulp-clean'),
-    connect   = require('gulp-connect'),
-    sass      = require('gulp-sass'),
-    cleanCSS  = require('gulp-clean-css'),
-    uglify    = require('gulp-uglify'),
-    concat    = require('gulp-concat'),
-    pug       = require('gulp-pug'),
-    htmlmin   = require('gulp-html-minifier');
+const {
+  src,
+  dest,
+  watch,
+  series,
+  parallel
+} = require('gulp'),
+  gulpClean = require('gulp-clean'),
+  connect   = require('gulp-connect'),
+  sass      = require('gulp-sass'),
+  cleanCSS  = require('gulp-clean-css'),
+  uglify    = require('gulp-uglify'),
+  concat    = require('gulp-concat'),
+  pug       = require('gulp-pug'),
+  htmlmin   = require('gulp-html-minifier');
 
 // Server task
 const server = () => {
@@ -32,7 +38,7 @@ const clean = () =>
 
 // Compile Pug template to HTML
 const compilePug = () =>
-  src('src/pug/*.pug')
+  src('./src/pug/*.pug')
     .pipe(pug())
     .pipe(dest('build'));
 
@@ -45,20 +51,19 @@ const cssBundle = () =>
     .pipe(dest('build'))
 
 // Compress JS
-const jsBundle = () => {
-  return src('src/js/**/*.js')
-  .pipe(src('vendor/*.js'))
-  .pipe(uglify())
-  .pipe(concat('main.js'))
-  .pipe(dest('build'));
-}
+const jsBundle = () =>
+  src('./src/js/**/*.js')
+    .pipe(src('vendor/*.js'))
+    .pipe(uglify())
+    .pipe(concat('main.js'))
+    .pipe(dest('build'));
 
-const watch = (cb) => {
-  console.log('Watch task');
-  parallel(
-    compilePug
-  );
-  cb();
+const watchFiles = (cb) => {
+  watch('./src/js/**/*.js', jsBundle);
+  watch('./src/sass/**/*.scss', cssBundle);
+  watch('./src/pug/*.pug', compilePug);
+
+  return cb();
 }
 
 exports.build = series(
@@ -73,6 +78,6 @@ exports.build = series(
 exports.default = series(
   clean,
   this.build,
+  watchFiles,
   server,
-  watch
 )

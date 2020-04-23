@@ -23,3 +23,26 @@
     max-height: 30px;
   }
 }
+
+// Background color for icon wrapper
+.tech {
+  &-html {
+    background-color: #81a2fe;
+  }
+
+  &-css {
+    background-color: #fdcad2;
+  }
+
+  &-js {
+    background-color: #fbd07a;
+  }
+
+  &-react {
+    background-color: #e8e8e8;
+  }
+
+  &-redux {
+    background-color: #764abc;
+  }
+}

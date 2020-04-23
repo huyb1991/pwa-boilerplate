@@ -22,11 +22,14 @@ const server = () => {
   });
 }
 
-// // Live-reload for HTML
-// gulp.task('html', function () {
-//   return gulp.src('./src/statics/*.html')
-//     .pipe(connect.reload());
-// });
+// Live-reload for HTML
+const livereload = () =>
+  src([
+    './build/**/*.html',
+    './build/**/*.css',
+    './build/**/*.js',
+  ])
+  .pipe(connect.reload())
 
 // Clean build
 const clean = () =>
@@ -59,9 +62,17 @@ const jsBundle = () =>
     .pipe(dest('build'));
 
 const watchFiles = (cb) => {
+  // Re-build
   watch('./src/js/**/*.js', jsBundle);
   watch('./src/sass/**/*.scss', cssBundle);
   watch('./src/pug/*.pug', pugBundle);
+
+  // Livereload
+  watch([
+    './build/**/*.html',
+    './build/**/*.css',
+    './build/**/*.js'
+  ], livereload);
 
   return cb();
 }
@@ -79,5 +90,5 @@ exports.default = series(
   clean,
   this.build,
   watchFiles,
-  server,
+  server
 )

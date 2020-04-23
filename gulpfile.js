@@ -41,13 +41,13 @@ const clean = () =>
 // Copy assets
 const copy = () =>
   src('./src/asset/**/*')
-  .pipe(dest('build'))
+  .pipe(dest('build/assets'))
 
 // Compile Pug template to HTML
 const pugBundle = () =>
   src('./src/pug/*.pug')
     .pipe(pug())
-    .pipe(dest('build/assets'));
+    .pipe(dest('build'));
 
 // Compile sass
 const cssBundle = () =>

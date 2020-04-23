@@ -34,7 +34,7 @@ const clean = () =>
 const compilePug = () =>
   src('src/pug/*.pug')
     .pipe(pug())
-    .pipe(dest('build/'));
+    .pipe(dest('build'));
 
 // Compile sass
 const cssBundle = () =>
@@ -45,12 +45,12 @@ const cssBundle = () =>
     .pipe(dest('build'))
 
 // Compress JS
-const javascript = () => {
+const jsBundle = () => {
   return src('src/js/**/*.js')
   .pipe(src('vendor/*.js'))
   .pipe(uglify())
   .pipe(concat('main.js'))
-  .pipe(dest('build/'));
+  .pipe(dest('build'));
 }
 
 const watch = (cb) => {
@@ -66,7 +66,7 @@ exports.build = series(
   parallel(
     compilePug,
     cssBundle,
-    javascript
+    jsBundle
   )
 )
 

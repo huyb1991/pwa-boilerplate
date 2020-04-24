@@ -46,3 +46,34 @@
     background-color: #764abc;
   }
 }
+
+.project {
+  &-wrapper {
+    display: grid;
+    grid-gap: 20px;
+    border: 1px solid rgba(0,0,0,.05);
+  
+    @media only screen and (min-width: $breakpoint-mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 60px 1fr;
+  box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+
+  &-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-img {
+    width: 100%;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+  }
+}

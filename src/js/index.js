@@ -9,18 +9,13 @@ window.addEventListener('beforeinstallprompt', (event) => {
   window.deferredPrompt = event;
   // Remove the 'hidden' class from the install button container
   toggleInstall();
-  // divInstall.classList.toggle('hidden', false);
-  // documentBody.classList.toggle('app-with-installerbar', true)
 });
 
 const toggleInstall = () => {
-  console.log('toggleInstall()')
-  // Installer container
+  // Install container
   if (divInstall.classList.contains('hidden')) {
-    console.log('container has')
     divInstall.classList.remove('hidden');
   } else {
-    console.log('container doesnt has')
     divInstall.classList.add('hidden');
   }
 
@@ -55,7 +50,7 @@ if (btnInstall) {
       // prompt() can only be called once.
       window.deferredPrompt = null;
       // Hide the install button.
-      divInstall.classList.toggle('hidden', true);
+      toggleInstall();
     });
   });
 }

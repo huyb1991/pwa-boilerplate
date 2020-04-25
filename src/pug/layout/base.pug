@@ -1,0 +1,16 @@
+doctype html
+html
+  include head.pug
+
+  body.app
+    include ../partials/install.pug
+
+    header.header
+      .container
+        h1 PWA Boilerplate
+    main.main
+      block content
+
+    include footer.pug
+
+    script(src='/main.js')

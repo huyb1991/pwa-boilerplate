@@ -41,7 +41,7 @@ const clean = () =>
 // Copy assets
 const copy = () =>
   src('./src/asset/**/*')
-  .pipe(dest('build/assets'))
+  .pipe(dest('build'))
 
 // Compile Pug template to HTML
 const pugBundle = () =>

@@ -23,7 +23,9 @@
 }
 
 .app-with-install-bar {
-  margin-top: $installer-height;
+  @media only screen and (max-width: $breakpoint-mobile) {
+    margin-top: $installer-height;
+  }
 }
 
 .install {

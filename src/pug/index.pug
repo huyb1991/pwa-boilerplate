@@ -38,7 +38,33 @@ html
               h3.project-name Project #{val}
 
     footer.footer
-      .container
-        | Footer
+      .container.footer-content
+        a(
+          class="footer-icon-wrapper"
+          href="#"
+        )
+          img(
+            class="footer-icon"
+            src='/assets/icons/home.svg',
+            alt="Home"
+          )
+        a(
+          class="footer-icon-wrapper"
+          href="#"
+        )
+          img(
+            class="footer-icon"
+            src='/assets/icons/heart.svg',
+            alt="Favourite"
+          )
+        a(
+          class="footer-icon-wrapper"
+          href="#"
+        )
+          img(
+            class="footer-icon"
+            src='/assets/icons/settings.svg',
+            alt="Settings"
+          )
 
     script(src='/main.js')

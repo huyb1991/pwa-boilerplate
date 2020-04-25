@@ -16,13 +16,24 @@
   }
 }
 
+.container {
+  padding: 0 $base-spacing;
+}
+
 .footer {
   background-color: white;
   -moz-box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-}
 
-.container {
-  padding: 0 $base-spacing;
+  &-content {
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-icon {
+    width: 32px;
+    height: 32px;
+  }
 }

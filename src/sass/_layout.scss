@@ -1,0 +1,45 @@
+.app {
+  display: grid;
+  grid-template-rows: 100px 1fr 60px;
+}
+
+.main {
+  background-color: white;
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    border-radius: $base-spacing $base-spacing 0 0;
+  }
+
+  @media only screen and (min-width: $breakpoint-mobile) {
+    margin: $base-spacing;
+    border-radius: $base-spacing;
+  }
+}
+
+.container {
+  padding: 0 $base-spacing;
+}
+
+.footer {
+  background-color: white;
+  -moz-box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &-content {
+    padding: 12px $base-spacing;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-icon {
+    width: 32px;
+    height: 32px;
+  }
+}

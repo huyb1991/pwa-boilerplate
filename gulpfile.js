@@ -77,7 +77,7 @@ const watchFiles = (cb) => {
   // Re-build
   watch('./src/js/**/*.js', jsBundle);
   watch('./src/sass/**/*.scss', cssBundle);
-  watch('./src/pug/*.pug', pugBundle);
+  watch('./src/pug/**/*.pug', pugBundle);
 
   // Livereload
   watch([

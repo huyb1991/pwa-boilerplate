@@ -8,7 +8,6 @@ const FILES_TO_CACHE = [
   // Icons
   '/icons/close.svg',
   '/icons/heart.svg',
-  '/icons/download.svg',
   '/icons/home.svg',
   '/icons/settings.svg',
   '/icons/css3.svg',

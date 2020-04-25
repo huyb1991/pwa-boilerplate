@@ -25,10 +25,10 @@ const toggleInstall = () => {
   }
 
   // Body
-  if (documentBody.classList.contains('app-with-installerbar')) {
-    documentBody.classList.remove('app-with-installerbar');
+  if (documentBody.classList.contains('app-with-install-bar')) {
+    documentBody.classList.remove('app-with-install-bar');
   } else {
-    documentBody.classList.add('app-with-installerbar');
+    documentBody.classList.add('app-with-install-bar');
   }
 }
 

@@ -11,7 +11,8 @@ const {
   cleanCSS  = require('gulp-clean-css'),
   uglify    = require('gulp-uglify'),
   concat    = require('gulp-concat'),
-  pug       = require('gulp-pug');
+  pug       = require('gulp-pug'),
+  babel     = require('gulp-babel');
 
 // Server task
 const server = () => {
@@ -60,6 +61,9 @@ const cssBundle = () =>
 // Compress JS
 const jsBundle = () =>
   src('./src/js/**/*.js')
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(src('vendor/*.js'))
     .pipe(uglify())
     .pipe(concat('main.js'))

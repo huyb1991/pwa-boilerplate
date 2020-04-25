@@ -6,10 +6,20 @@
 
 #installContainer {
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
   background-color: #7f38fb;
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: $breakpoint-mobile) {
+    right: 20px;
+    top: 20px;
+    width: 350px;
+    border-radius: 20px;
+  }
 }
 
 .app-with-install-bar {

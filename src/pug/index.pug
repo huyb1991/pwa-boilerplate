@@ -1,0 +1,30 @@
+extends layout/base.pug
+
+block content
+  main.main
+    .container
+      - var skillSet = ["html5", "css3", "javascript", "react", "redux"]
+
+      h2 Skill set
+      ul.skill-set
+        each item in skillSet
+          li.skill-item.tech-html
+            img(
+              class="skill-icon"
+              src='/icons/' + item + '.svg',
+              alt="#{item}"
+            )
+
+      - var projects = ["p1", "p2", "p3", "p4", "p5", "p6"]
+
+      h2 Projects
+      div.project-wrapper
+        each val in projects
+          div.project
+            div.project-thumb
+              img(
+                class="project-img"
+                src='/img/' + val + '.png'
+                alt="Project #{val}"
+              )
+            h3.project-name Project #{val}

@@ -2,12 +2,26 @@ doctype html
 html
   head
     meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title Progressive Web App Boilerplate
     link(rel="manifest", href="/manifest.json")
     link(rel="stylesheet", href="/styles.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap")
   body.app
+    #installContainer.hidden
+      .install-container.container
+        img(
+          class="icon-small install-close"
+          src='/icons/close.svg',
+          alt="Close install banner"
+        )
+        p Get our free app, it won't take up space on your phone
+        button(
+          class="install-btn",
+          type="button"
+        ) Install
+
     header.header
       .container
         h1 PWA Boilerplate

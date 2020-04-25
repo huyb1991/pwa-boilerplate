@@ -46,7 +46,11 @@ const copy = () =>
 
 // Compile Pug template to HTML
 const pugBundle = () =>
-  src('./src/pug/*.pug')
+  src([
+    './src/pug/**/*.pug',
+    '!./src/pug/layout/*.pug',
+    '!./src/pug/partials/*.pug'
+  ])
     .pipe(pug())
     .pipe(dest('build'));
 

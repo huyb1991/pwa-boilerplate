@@ -10,41 +10,32 @@ html
         h1 PWA Boilerplate
     main.main
       .container
+
+        - var skillSet = ["html5", "css3", "javascript", "react", "redux"]
+
         h2 Skill set
         ul.skill-set
-          li.skill-item.tech-html
-            img(
-              class="skill-icon"
-              src="/assets/icons/html5.svg",
-              alt="HTML5"
-            )
-          li.skill-item.tech-css
-            img(
-              class="skill-icon"
-              src="/assets/icons/css3.svg",
-              alt="CSS3"
-            )
-          li.skill-item.tech-js
-            img(
-              class="skill-icon"
-              src="/assets/icons/js.svg",
-              alt="JavaScript"
-            )
-          li.skill-item.tech-react
-            img(
-              class="skill-icon"
-              src="/assets/icons/react.svg",
-              alt="React"
-            )
-          li.skill-item.tech-redux
-            img(
-              class="skill-icon"
-              src="/assets/icons/redux.svg",
-              alt="Redux"
-            )
+          each item in skillSet
+            li.skill-item.tech-html
+              img(
+                class="skill-icon"
+                src='/assets/icons/' + item + '.svg',
+                alt="#{item}"
+              )
+
+        - var projects = ["p1", "p2", "p3", "p4", "p5", "p6"]
 
         h2 Projects
-        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        div.project-wrapper
+          each val in projects
+            div.project
+              div.project-thumb
+                img(
+                  class="project-img"
+                  src='/assets/img/' + val + '.png'
+                  alt="Project #{val}"
+                )
+              h3.project-name Project #{val}
 
     footer.footer
       .container

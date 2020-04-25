@@ -1,5 +1,5 @@
 const divInstall = document.getElementById('installContainer');
-const butInstall = document.getElementById('butInstall');
+const btnInstall = document.getElementById('btnInstall');
 const btnClose = document.getElementById('btnClose');
 const documentBody = document.getElementsByTagName('body')[0];
 
@@ -38,9 +38,9 @@ if (btnClose) {
   })
 }
 
-if (butInstall) {
-  butInstall.addEventListener('click', () => {
-    console.log('👍', 'butInstall-clicked');
+if (btnInstall) {
+  btnInstall.addEventListener('click', () => {
+    console.log('👍', 'btnInstall-clicked');
     const promptEvent = window.deferredPrompt;
     if (!promptEvent) {
       // The deferred prompt isn't available.

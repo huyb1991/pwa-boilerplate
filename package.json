@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/huyb1991/pwa-boilerplate.git",
-  "author": "Huy Nguyen <huyb.1991@gmail.com>",
+  "author": "Huy Nguyen",
   "license": "MIT",
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js",

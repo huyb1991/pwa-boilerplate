@@ -1,7 +1,7 @@
 
 // PWA styles for install button
 .hidden {
-  // display: none !important;
+  display: none;
 }
 
 #installContainer {
@@ -12,8 +12,13 @@
   background-color: #7f38fb;
 }
 
+.app-with-installerbar {
+  margin-top: $installer-height;
+}
+
 .install {
   &-container {
+    height: $installer-height;
     display: flex;
     justify-content: space-between;
     padding: 12px 30px;
@@ -21,8 +26,18 @@
     align-items: center;
   }
 
+  &-close {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  &-text {
+    margin: 0;
+  }
+
   &-btn {
     cursor: pointer;
+    outline: none;
     height: 40px;
     background-color: white;
     border: 1px solid white;

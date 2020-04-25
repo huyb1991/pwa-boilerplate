@@ -11,7 +11,8 @@ const {
   cleanCSS  = require('gulp-clean-css'),
   uglify    = require('gulp-uglify'),
   concat    = require('gulp-concat'),
-  pug       = require('gulp-pug');
+  pug       = require('gulp-pug'),
+  babel     = require('gulp-babel');
 
 // Server task
 const server = () => {
@@ -41,11 +42,15 @@ const clean = () =>
 // Copy assets
 const copy = () =>
   src('./src/asset/**/*')
-  .pipe(dest('build/assets'))
+  .pipe(dest('build'))
 
 // Compile Pug template to HTML
 const pugBundle = () =>
-  src('./src/pug/*.pug')
+  src([
+    './src/pug/**/*.pug',
+    '!./src/pug/layout/*.pug',
+    '!./src/pug/partials/*.pug'
+  ])
     .pipe(pug())
     .pipe(dest('build'));
 
@@ -60,6 +65,9 @@ const cssBundle = () =>
 // Compress JS
 const jsBundle = () =>
   src('./src/js/**/*.js')
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(src('vendor/*.js'))
     .pipe(uglify())
     .pipe(concat('main.js'))
@@ -69,7 +77,7 @@ const watchFiles = (cb) => {
   // Re-build
   watch('./src/js/**/*.js', jsBundle);
   watch('./src/sass/**/*.scss', cssBundle);
-  watch('./src/pug/*.pug', pugBundle);
+  watch('./src/pug/**/*.pug', pugBundle);
 
   // Livereload
   watch([

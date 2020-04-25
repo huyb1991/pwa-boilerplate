@@ -1,72 +1,30 @@
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    title Progressive Web App Boilerplate
-    link(rel="stylesheet", href="/styles.css")
-    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap")
-  body.app
-    header.header
-      .container
-        h1 PWA Boilerplate
-    main.main
-      .container
+extends layout/base.pug
 
-        - var skillSet = ["html5", "css3", "javascript", "react", "redux"]
+block content
+  main.main
+    .container
+      - var skillSet = ["html5", "css3", "javascript", "react", "redux"]
 
-        h2 Skill set
-        ul.skill-set
-          each item in skillSet
-            li.skill-item.tech-html
+      h2 Skill set
+      ul.skill-set
+        each item in skillSet
+          li.skill-item.tech-html
+            img(
+              class="skill-icon"
+              src='/icons/' + item + '.svg',
+              alt="#{item}"
+            )
+
+      - var projects = ["p1", "p2", "p3", "p4", "p5", "p6"]
+
+      h2 Projects
+      div.project-wrapper
+        each val in projects
+          div.project
+            div.project-thumb
               img(
-                class="skill-icon"
-                src='/assets/icons/' + item + '.svg',
-                alt="#{item}"
+                class="project-img"
+                src='/img/' + val + '.png'
+                alt="Project #{val}"
               )
-
-        - var projects = ["p1", "p2", "p3", "p4", "p5", "p6"]
-
-        h2 Projects
-        div.project-wrapper
-          each val in projects
-            div.project
-              div.project-thumb
-                img(
-                  class="project-img"
-                  src='/assets/img/' + val + '.png'
-                  alt="Project #{val}"
-                )
-              h3.project-name Project #{val}
-
-    footer.footer
-      .container.footer-content
-        a(
-          class="footer-icon-wrapper"
-          href="#"
-        )
-          img(
-            class="footer-icon"
-            src='/assets/icons/home.svg',
-            alt="Home"
-          )
-        a(
-          class="footer-icon-wrapper"
-          href="#"
-        )
-          img(
-            class="footer-icon"
-            src='/assets/icons/heart.svg',
-            alt="Favourite"
-          )
-        a(
-          class="footer-icon-wrapper"
-          href="#"
-        )
-          img(
-            class="footer-icon"
-            src='/assets/icons/settings.svg',
-            alt="Settings"
-          )
-
-    script(src='/main.js')
+            h3.project-name Project #{val}

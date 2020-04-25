@@ -1,0 +1,60 @@
+
+// PWA styles for install button
+.hidden {
+  display: none;
+}
+
+#installContainer {
+  position: fixed;
+  background-color: #7f38fb;
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: $breakpoint-mobile) {
+    right: 20px;
+    top: 20px;
+    width: 350px;
+    border-radius: 20px;
+  }
+}
+
+.app-with-install-bar {
+  margin-top: $installer-height;
+}
+
+.install {
+  &-container {
+    height: $installer-height;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 30px;
+    color: white;
+    align-items: center;
+  }
+
+  &-close {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  &-text {
+    margin: 0;
+  }
+
+  &-btn {
+    cursor: pointer;
+    outline: none;
+    height: 40px;
+    background-color: white;
+    border: 1px solid white;
+    color: #5600e9;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0px 24px;
+    border-radius: 32px;
+  }
+}
